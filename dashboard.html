@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERP Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+
+        .header .logout {
+            margin: 0;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            border-right: 1px solid #ddd;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+        }
+
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin: 0 auto 20px;
+        }
+
+        .profile-photo input {
+            display: none;
+        }
+
+        .profile-photo label {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            text-align: center;
+            line-height: 100px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block; /* Ensure the uploaded image is displayed */
+        }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .sidebar-section a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .sidebar-section a:hover {
+            color: #4CAF50;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            margin-left: 270px; /* Adjust for sidebar width */
+        }
+
+        .card {
+            flex: 1;
+            max-width: 150px;
+            max-height: 50px; /* Reduce height to make buttons vertically thinner */
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px; /* Adjust padding to fit the new size */
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .logout button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .logout button:hover {
+            background-color: #d32f2f;
+        }
+        .console {
+            margin: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            height: 500px; /* Reduced height by 5% of the current size */
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div>Smart Academic ERP Dashboard</div>
+        <div class="logout">
+            <button onclick="logout()">Log Out</button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="profile-photo"></div>
+        <div class="sidebar-section">
+            <h3>Profile</h3>
+            <input type="file" id="profile-photo-input" accept="image/*" onchange="previewImage(event)">
+            <label for="profile-photo-input">Change Profile Photo</label>
+            <img id="profile-photo" src="" alt="Profile Photo" style="display: none;">
+            <a href="#">View Profile</a>
+            <a href="#">Edit Profile</a>
+        </div>
+        <div class="sidebar-section">
+            <h3>Settings</h3>
+            <a href="#">Account Settings</a>
+            <a href="#">Privacy Settings</a>
+        </div>
+        <div class="sidebar-section">
+            <h3>Personal Details</h3>
+            <a href="#">Contact Information</a>
+            <a href="#">Emergency Contacts</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <a href="#" onclick="navigateTo('attendance')">Attendance Tracking</a>
+        </div>
+        <div class="card">
+            <a href="#" onclick="navigateTo('grades')">Grade Tracking</a>
+        </div>
+        <div class="card">
+            <a href="#" onclick="navigateTo('exam')">Exam/Admit Card</a>
+        </div>
+        <div class="card">
+            <a href="#" onclick="navigateTo('assignment')">Assignment</a>
+        </div>
+        <div class="card">
+            <a href="#" onclick="navigateTo('library')">Library Management</a>
+        </div>
+        <div class="card">
+            <a href="#" onclick="navigateTo('fees')">Fees/Fine Tracking</a>
+        </div>
+        <div class="card">
+            <a href="#" onclick="navigateTo('notifications')">Notifications</a>
+        </div>
+    </div>
+
+    <div class="console">
+        <!-- Console content will appear here -->
+    </div>
+
+    <script>
+        function logout() {
+            alert('You have been logged out.');
+            window.location.href = 'login.html'; // Redirect to login page
+        }
+
+        function navigateTo(page) {
+            window.location.href = page + '.html';
+        }
+    </script>
+</body>
+</html>
