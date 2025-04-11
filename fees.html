@@ -23,12 +23,162 @@
         .content {
             padding: 20px;
         }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            width: 50%;
+            margin: auto;
+        }
+
+        .chart {
+            display: block;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <div class="header">Fees/Fine Tracking</div>
     <div class="content">
-        <p>Fees/Fine tracking content goes here.</p>
+        <div class="section">
+            <h2>Fees Overview</h2>
+            <p>Total Fees: $5000</p>
+            <p>Paid Fees: $4000</p>
+            <p>Outstanding Fees: $1000</p>
+            <div class="chart-container">
+                <canvas id="feeChart" class="chart"></canvas>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Payment History</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Receipt Number</th>
+                </tr>
+                <tr>
+                    <td>April 1, 2025</td>
+                    <td>$2000</td>
+                    <td>Credit Card</td>
+                    <td>12345</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Outstanding Fees</h2>
+            <table>
+                <tr>
+                    <th>Fee Type</th>
+                    <th>Due Date</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Tuition Fee</td>
+                    <td>April 20, 2025</td>
+                    <td>$1000</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Pay Fees</h2>
+            <button class="button">Pay Now</button>
+        </div>
+
+        <div class="section">
+            <h2>Fine Details</h2>
+            <table>
+                <tr>
+                    <th>Fine Type</th>
+                    <th>Reason</th>
+                    <th>Date</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Library Fine</td>
+                    <td>Overdue Book</td>
+                    <td>April 10, 2025</td>
+                    <td>$10</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Notifications</h2>
+            <p>Alert: Your tuition fee is due on April 20, 2025.</p>
+            <p>Notification: Payment of $2000 was successful on April 1, 2025.</p>
+        </div>
+
+        <div class="section">
+            <h2>Fee Policies</h2>
+            <p>Late payment penalty: $50 per week.</p>
+            <p>Refund policy: Fees are non-refundable after the semester starts.</p>
+        </div>
+
+        <div class="section">
+            <h2>Fee Reports</h2>
+            <button class="button">Download Fee Report (PDF)</button>
+            <button class="button">Download Fee Report (Excel)</button>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('feeChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Paid Fees', 'Outstanding Fees'],
+                datasets: [{
+                    data: [4000, 1000],
+                    backgroundColor: ['#4CAF50', '#f44336'],
+                    borderColor: ['#4CAF50', '#f44336'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                }
+            }
+        });
+    </script>
 </body>
 </html>
