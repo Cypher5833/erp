@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,10 +17,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #4CAF50;
-            color: white;
+            background-color: #83d0f4;
+            color: rgb(8, 3, 149);
             padding: 20px;
             font-size: 24px;
+            font-weight: bold;
         }
 
         .header .logout {
@@ -65,7 +67,8 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            display: block; /* Ensure the uploaded image is displayed */
+            display: block;
+            /* Ensure the uploaded image is displayed */
         }
 
         .sidebar-section {
@@ -75,7 +78,7 @@
         .sidebar-section h3 {
             font-size: 18px;
             margin-bottom: 10px;
-            color: #4CAF50;
+            color: #09cb10;
         }
 
         .sidebar-section a {
@@ -95,18 +98,21 @@
             justify-content: center;
             gap: 20px;
             padding: 20px;
-            margin-left: 270px; /* Adjust for sidebar width */
+            margin-left: 270px;
+            /* Adjust for sidebar width */
         }
 
         .card {
             flex: 1;
             max-width: 150px;
-            max-height: 50px; /* Reduce height to make buttons vertically thinner */
+            max-height: 50px;
+            /* Reduce height to make buttons vertically thinner */
             background-color: white;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 10px; /* Adjust padding to fit the new size */
+            padding: 10px;
+            /* Adjust padding to fit the new size */
             text-align: center;
             transition: transform 0.2s;
         }
@@ -117,12 +123,12 @@
 
         .card a {
             text-decoration: none;
-            color: #4CAF50;
+            color: #436044;
             font-weight: bold;
         }
 
         .logout button {
-            background-color: #f44336;
+            background-color: #0a0a0a;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -134,13 +140,15 @@
         .logout button:hover {
             background-color: #d32f2f;
         }
+
         .console {
             margin: 20px;
             padding: 10px;
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 5px;
-            height: 500px; /* Reduced height by 5% of the current size */
+            height: 300px;
+            /* Reduced height by 5% of the current size */
             overflow-y: auto;
             font-family: monospace;
             font-size: 14px;
@@ -148,11 +156,12 @@
         }
     </style>
 </head>
+
 <body>
     <div class="header">
-        <div>Smart Academic ERP Dashboard</div>
+        <div>SMART ACCADEMIC ERP DASHBOARD</div>
         <div class="logout">
-            <button onclick="logout()">Log Out</button>
+            <button onclick="logout()">LOG OUT</button>
         </div>
     </div>
 
@@ -217,4 +226,5 @@
         }
     </script>
 </body>
+
 </html>
