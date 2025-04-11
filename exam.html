@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam/Admit Card</title>
+    <title>Student Exam Dashboard</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f9;
+            animation: fadeInBody 1s ease-in;
         }
 
         .header {
@@ -17,18 +18,188 @@
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 24px;
+            font-size: 28px;
+            animation: slideDown 0.8s ease-out;
         }
 
         .content {
             padding: 20px;
+            animation: fadeIn 1.2s ease-in;
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            animation: zoomIn 0.6s ease;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        .countdown {
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        .admit-card-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .admit-card-link a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <div class="header">Exam/Admit Card</div>
+    <div class="header">Student Exam </div>
     <div class="content">
-        <p>Exam/Admit Card content goes here.</p>
+
+        <div class="section">
+            <h2>Upcoming Exams</h2>
+            <ul>
+                <li>RPA – April 20, 10:00 AM (Duration: 2 hrs) <span class="countdown">[3 days left]</span></li>
+                <li>DS – April 22, 1:00 PM (Duration: 1.5 hrs) <span class="countdown">[5 days left]</span></li>
+                <li>Web Programming – April 22, 10:00 AM (Duration: 2 hrs) <span class="countdown">[7 days left]</span></li>
+                <li>Computer Networks – April 24, 9:00 AM (Duration: 2 hrs) <span class="countdown">[9 days left]</span></li>
+                <li>Operating Systems – April 26, 11:00 AM (Duration: 2 hrs) <span class="countdown">[11 days left]</span></li>
+                <li>Database Systems – April 28, 1:00 PM (Duration: 2 hrs) <span class="countdown">[13 days left]</span></li>
+                <li>Software Engineering – April 30, 10:00 AM (Duration: 2 hrs) <span class="countdown">[15 days left]</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Exam Instructions</h2>
+            <ul>
+                <li>No mobile phones or smart devices allowed.</li>
+                <li>Bring your student ID and a scientific calculator.</li>
+                <li>Reach the venue 15 minutes early.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Admit Card</h2>
+            <p class="admit-card-link">Download your admit card here: <a href="#">Click to download Admit Card</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Exam Status</h2>
+            <ul>
+                <li>Math – Not Started</li>
+                <li>English – Completed (Attempted on April 5)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Results & Scores</h2>
+            <table>
+                <tr>
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Grade</th>
+                    <th>Rank</th>
+                </tr>
+                <tr>
+                    <td>RPA</td>
+                    <td>87%</td>
+                    <td>A</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>DS</td>
+                    <td>78%</td>
+                    <td>B+</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>Web Programming</td>
+                    <td>92%</td>
+                    <td>A+</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Computer Networks</td>
+                    <td>85%</td>
+                    <td>A</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Operating Systems</td>
+                    <td>80%</td>
+                    <td>B+</td>
+                    <td>25</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Feedback & Solutions</h2>
+            <ul>
+                <li><strong>RPA:</strong> View correct answers and explanations</li>
+                <li><strong>DS:</strong> Solution review available</li>
+                <li><strong>Web Programming:</strong> Answer key published</li>
+                <li><strong>Computer Networks:</strong> Review scheduled</li>
+                <li><strong>Operating Systems:</strong> Answers to be released</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Notifications</h2>
+            <ul>
+                <li>New exam schedule published for May</li>
+                <li>RPA re-test application closes April 15</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Progress Tracking</h2>
+            <ul>
+                <li>Strong subjects: English, Web Programming</li>
+                <li>Needs improvement: Operating Systems (average time: 50 mins/topic)</li>
+                <li>Total study time this week: 12 hours</li>
+            </ul>
+        </div>
+
     </div>
 </body>
 </html>
