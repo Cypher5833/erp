@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Tracking</title>
+    <title>Attendance Tracker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,12 +23,217 @@
         .content {
             padding: 20px;
         }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .chart {
+            width: 15%; /* Further reduced size to make the chart even smaller */
+            height: 50px; /* Adjusted height proportionally */
+            background-color: #ddd;
+            text-align: center;
+            line-height: 50px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="header">Attendance Tracking</div>
     <div class="content">
-        <p>Attendance tracking content goes here.</p>
+        <!-- Attendance Overview -->
+        <div class="section">
+            <h2>Attendance Overview</h2>
+            <div class="chart-container">
+                <!-- Bar Chart -->
+                <canvas id="barChart" class="chart"></canvas>
+            </div>
+            <p>Total Days Attended: 120</p>
+            <p>Total Days Absent: 10</p>
+            <p>Attendance Percentage: 92%</p>
+        </div>
+
+        <!-- Daily Attendance -->
+        <div class="section">
+            <h2>Daily Attendance</h2>
+            <p>View your attendance status for each day:</p>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Remarks</th>
+                </tr>
+                <tr>
+                    <td>2025-04-01</td>
+                    <td>Present</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2025-04-02</td>
+                    <td>Absent</td>
+                    <td>Sick Leave</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Mark Attendance -->
+        <div class="section">
+            <h2>Mark Attendance</h2>
+            <form>
+                <div class="input-group">
+                    <label for="student-name">Student Name:</label>
+                    <input type="text" id="student-name" name="student-name">
+                </div>
+                <div class="input-group">
+                    <label for="attendance-status">Status:</label>
+                    <select id="attendance-status" name="attendance-status">
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                        <option value="late">Late</option>
+                    </select>
+                </div>
+                <button type="submit" class="button">Mark Attendance</button>
+            </form>
+        </div>
+
+        <!-- Attendance History -->
+        <div class="section">
+            <h2>Attendance History</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Remarks</th>
+                </tr>
+                <tr>
+                    <td>2025-03-30</td>
+                    <td>Present</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2025-03-29</td>
+                    <td>Absent</td>
+                    <td>Family Emergency</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Attendance Reports -->
+        <div class="section">
+            <h2>Attendance Reports</h2>
+            <button class="button">Download PDF</button>
+            <button class="button">Download Excel</button>
+        </div>
+
+        <!-- Notifications -->
+        <div class="section">
+            <h2>Notifications</h2>
+            <p>Alert: Your attendance is below 75% for this month.</p>
+        </div>
+
+        <!-- Attendance Policies -->
+        <div class="section">
+            <h2>Attendance Policies</h2>
+            <p>Students must maintain a minimum of 75% attendance to be eligible for exams.</p>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="section">
+            <h2>Search and Filter</h2>
+            <form>
+                <div class="input-group">
+                    <label for="search-date">Search by Date:</label>
+                    <input type="date" id="search-date" name="search-date">
+                </div>
+                <div class="input-group">
+                    <label for="filter-status">Filter by Status:</label>
+                    <select id="filter-status" name="filter-status">
+                        <option value="all">All</option>
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                        <option value="late">Late</option>
+                    </select>
+                </div>
+                <button type="submit" class="button">Search</button>
+            </form>
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Data for the charts
+        const attendanceData = {
+            labels: ['Attended', 'Absent'],
+            datasets: [{
+                label: 'Attendance',
+                data: [120, 10], // Example data
+                backgroundColor: ['#4CAF50', '#f44336'], // Colors for the chart
+                borderColor: ['#4CAF50', '#f44336'],
+                borderWidth: 1
+            }]
+        };
+
+        // Bar Chart
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: attendanceData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
