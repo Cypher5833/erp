@@ -40,19 +40,21 @@
             color: #333;
         }
 
-        ul {
-            padding-left: 20px;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 10px;
         }
 
         th, td {
             padding: 10px;
             border: 1px solid #ccc;
             text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
         }
 
         .countdown {
@@ -92,22 +94,69 @@
     </style>
 </head>
 <body>
-    <div class="header">Student Exam </div>
+    <div class="header">Student Exam Dashboard</div>
     <div class="content">
 
+        <!-- Upcoming Exams Section -->
         <div class="section">
             <h2>Upcoming Exams</h2>
-            <ul>
-                <li>RPA – April 20, 10:00 AM (Duration: 2 hrs) <span class="countdown">[3 days left]</span></li>
-                <li>DS – April 22, 1:00 PM (Duration: 1.5 hrs) <span class="countdown">[5 days left]</span></li>
-                <li>Web Programming – April 22, 10:00 AM (Duration: 2 hrs) <span class="countdown">[7 days left]</span></li>
-                <li>Computer Networks – April 24, 9:00 AM (Duration: 2 hrs) <span class="countdown">[9 days left]</span></li>
-                <li>Operating Systems – April 26, 11:00 AM (Duration: 2 hrs) <span class="countdown">[11 days left]</span></li>
-                <li>Database Systems – April 28, 1:00 PM (Duration: 2 hrs) <span class="countdown">[13 days left]</span></li>
-                <li>Software Engineering – April 30, 10:00 AM (Duration: 2 hrs) <span class="countdown">[15 days left]</span></li>
-            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Date & Time</th>
+                        <th>Duration</th>
+                        <th>Countdown</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>RPA</td>
+                        <td>April 20, 10:00 AM</td>
+                        <td>2 hrs</td>
+                        <td class="countdown">[3 days left]</td>
+                    </tr>
+                    <tr>
+                        <td>DS</td>
+                        <td>April 22, 1:00 PM</td>
+                        <td>1.5 hrs</td>
+                        <td class="countdown">[5 days left]</td>
+                    </tr>
+                    <tr>
+                        <td>Web Programming</td>
+                        <td>April 22, 10:00 AM</td>
+                        <td>2 hrs</td>
+                        <td class="countdown">[7 days left]</td>
+                    </tr>
+                    <tr>
+                        <td>Computer Networks</td>
+                        <td>April 24, 9:00 AM</td>
+                        <td>2 hrs</td>
+                        <td class="countdown">[9 days left]</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Systems</td>
+                        <td>April 26, 11:00 AM</td>
+                        <td>2 hrs</td>
+                        <td class="countdown">[11 days left]</td>
+                    </tr>
+                    <tr>
+                        <td>Database Systems</td>
+                        <td>April 28, 1:00 PM</td>
+                        <td>2 hrs</td>
+                        <td class="countdown">[13 days left]</td>
+                    </tr>
+                    <tr>
+                        <td>Software Engineering</td>
+                        <td>April 30, 10:00 AM</td>
+                        <td>2 hrs</td>
+                        <td class="countdown">[15 days left]</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
+        <!-- Exam Instructions Section -->
         <div class="section">
             <h2>Exam Instructions</h2>
             <ul>
@@ -117,11 +166,13 @@
             </ul>
         </div>
 
+        <!-- Admit Card Section -->
         <div class="section">
             <h2>Admit Card</h2>
             <p class="admit-card-link">Download your admit card here: <a href="#">Click to download Admit Card</a></p>
         </div>
 
+        <!-- Exam Status Section -->
         <div class="section">
             <h2>Exam Status</h2>
             <ul>
@@ -130,48 +181,54 @@
             </ul>
         </div>
 
+        <!-- Results & Scores Section -->
         <div class="section">
             <h2>Results & Scores</h2>
             <table>
-                <tr>
-                    <th>Subject</th>
-                    <th>Marks</th>
-                    <th>Grade</th>
-                    <th>Rank</th>
-                </tr>
-                <tr>
-                    <td>RPA</td>
-                    <td>87%</td>
-                    <td>A</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td>DS</td>
-                    <td>78%</td>
-                    <td>B+</td>
-                    <td>32</td>
-                </tr>
-                <tr>
-                    <td>Web Programming</td>
-                    <td>92%</td>
-                    <td>A+</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>Computer Networks</td>
-                    <td>85%</td>
-                    <td>A</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>Operating Systems</td>
-                    <td>80%</td>
-                    <td>B+</td>
-                    <td>25</td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                        <th>Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>RPA</td>
+                        <td>87%</td>
+                        <td>A</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>DS</td>
+                        <td>78%</td>
+                        <td>B+</td>
+                        <td>32</td>
+                    </tr>
+                    <tr>
+                        <td>Web Programming</td>
+                        <td>92%</td>
+                        <td>A+</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Computer Networks</td>
+                        <td>85%</td>
+                        <td>A</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>Operating Systems</td>
+                        <td>80%</td>
+                        <td>B+</td>
+                        <td>25</td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
+        <!-- Feedback & Solutions Section -->
         <div class="section">
             <h2>Feedback & Solutions</h2>
             <ul>
@@ -183,6 +240,7 @@
             </ul>
         </div>
 
+        <!-- Notifications Section -->
         <div class="section">
             <h2>Notifications</h2>
             <ul>
@@ -191,6 +249,7 @@
             </ul>
         </div>
 
+        <!-- Progress Tracking Section -->
         <div class="section">
             <h2>Progress Tracking</h2>
             <ul>
