@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Secure login page"/>
+    <title>Login | ERP System</title>
+    <link rel="stylesheet" href="login.css"/>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <!-- Replace the firebaseConfig object with your Firebase project configuration -->
+    <script>
+        // TODO: Replace with your Firebase configuration from Firebase Console
+        // Go to Project Settings > General > Your apps > SDK setup and configuration
+        const firebaseConfig = {
+            apiKey: "your-api-key",                     // Replace this
+            authDomain: "your-app.firebaseapp.com",     // Replace this
+            projectId: "your-project-id",               // Replace this
+            storageBucket: "your-app.appspot.com",      // Replace this
+            messagingSenderId: "your-sender-id",        // Replace this
+            appId: "your-app-id"                        // Replace this
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script defer src="login.js"></script>
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form" id="loginForm">
+            <h2>Welcome Back</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    id="email"
+                    name="email" 
+                    placeholder="Enter your email" 
+                    required 
+                    autocomplete="email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="password-field">
+                    <input 
+                        type="password" 
+                        id="password"
+                        name="password" 
+                        placeholder="Enter your password" 
+                        required 
+                        minlength="6"
+                        autocomplete="current-password" />
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                        <span class="eye-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember">Remember me</label>
+            </div>
+            <button type="submit" class="login-button">
+                Login
+            </button>
+            <div class="form-footer">
+                <p class="note">Don't share your credentials with anyone.</p>
+                <a href="#" id="forgotPassword" class="forgot-password">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
