@@ -28,16 +28,6 @@
             margin-bottom: 20px;
         }
 
-        .chart-container {
-            width: 50%;
-            margin: auto;
-        }
-
-        .chart {
-            display: block;
-            width: 100%;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;
@@ -75,9 +65,6 @@
             <p>Total Fees: $5000</p>
             <p>Paid Fees: $4000</p>
             <p>Outstanding Fees: $1000</p>
-            <div class="chart-container">
-                <canvas id="feeChart" class="chart"></canvas>
-            </div>
         </div>
 
         <div class="section">
@@ -88,12 +75,14 @@
                     <th>Amount</th>
                     <th>Payment Method</th>
                     <th>Receipt Number</th>
+                    <th>Action</th>
                 </tr>
                 <tr>
                     <td>April 1, 2025</td>
                     <td>$2000</td>
                     <td>Credit Card</td>
                     <td>12345</td>
+                    <td><button class="button">Pay Now</button></td>
                 </tr>
             </table>
         </div>
@@ -105,11 +94,13 @@
                     <th>Fee Type</th>
                     <th>Due Date</th>
                     <th>Amount</th>
+                    <th>Action</th>
                 </tr>
                 <tr>
                     <td>Tuition Fee</td>
                     <td>April 20, 2025</td>
                     <td>$1000</td>
+                    <td><button class="button">Pay Now</button></td>
                 </tr>
             </table>
         </div>
@@ -155,30 +146,5 @@
             <button class="button">Download Fee Report (Excel)</button>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('feeChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Paid Fees', 'Outstanding Fees'],
-                datasets: [{
-                    data: [4000, 1000],
-                    backgroundColor: ['#4CAF50', '#f44336'],
-                    borderColor: ['#4CAF50', '#f44336'],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                    },
-                }
-            }
-        });
-    </script>
 </body>
 </html>
