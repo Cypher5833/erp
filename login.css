@@ -14,7 +14,8 @@
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: var(--background-color);
+    background: url('image.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: var(--text-color);
     line-height: 1.6;
     min-height: 100vh;
@@ -53,6 +54,7 @@ label {
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 0.75rem 1rem;

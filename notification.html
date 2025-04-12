@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Tracker</title>
+    <title>Notifications</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f9f9f9;
+            color: #333;
         }
 
         .header {
@@ -17,171 +18,165 @@
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .content {
             padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .section h2 {
+            font-size: 22px;
             color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
 
-        table, th, td {
-            border: 1px solid #ddd;
+        ul li {
+            background-color: #f4f4f4;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        th, td {
+        ul li strong {
+            color: #333;
+            font-size: 18px;
+        }
+
+        form input[type="text"] {
+            width: calc(100% - 100px);
             padding: 10px;
-            text-align: center;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
         }
 
         .button {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 20px;
             border: none;
+            padding: 10px 20px;
+            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            margin-right: 10px;
+            transition: background-color 0.3s;
         }
 
         .button:hover {
             background-color: #45a049;
         }
 
-        .input-group {
+        .notification-settings ul li {
+            display: flex;
+            align-items: center;
             margin-bottom: 10px;
         }
 
-        .input-group label {
+        .notification-settings ul li input {
             margin-right: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="header">Attendance Tracking</div>
+    <div class="header">Notifications</div>
     <div class="content">
-        <!-- Attendance Overview -->
         <div class="section">
-            <h2>Attendance Overview</h2>
-            <p>Total Days Attended: 120</p>
-            <p>Total Days Absent: 10</p>
-            <p>Attendance Percentage: 92%</p>
+            <h2>Notification Overview</h2>
+            <p>Total Notifications: 50</p>
+            <p>Unread Notifications: 10</p>
         </div>
 
-        <!-- Daily Attendance -->
         <div class="section">
-            <h2>Daily Attendance</h2>
-            <p>View your attendance status for each day:</p>
-            <table>
-                <tr>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Remarks</th>
-                </tr>
-                <tr>
-                    <td>2025-04-01</td>
-                    <td>Present</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>2025-04-02</td>
-                    <td>Absent</td>
-                    <td>Sick Leave</td>
-                </tr>
-            </table>
+            <h2>Recent Notifications</h2>
+            <ul>
+                <li>
+                    <strong>Exam Schedule Updated</strong> - April 10, 2025
+                    <p>The exam schedule for Mathematics has been updated.</p>
+                </li>
+                <li>
+                    <strong>Library Book Due</strong> - April 9, 2025
+                    <p>Your borrowed book "Introduction to Algorithms" is due on April 15, 2025.</p>
+                </li>
+                <li>
+                    <strong>Fee Payment Reminder</strong> - April 8, 2025
+                    <p>Your tuition fee is due on April 20, 2025.</p>
+                </li>
+                <li>
+                    <strong>Assignment Submission Deadline</strong> - April 7, 2025
+                    <p>The deadline for the Physics assignment is April 15, 2025.</p>
+                </li>
+            </ul>
         </div>
 
-        <!-- Mark Attendance -->
         <div class="section">
-            <h2>Mark Attendance</h2>
-            <form action="attendance_backend.php" method="POST">
-                <label for="student-name">Student Name:</label>
-                <input type="text" id="student-name" name="student_name" required>
-
-                <label for="attendance-status">Attendance Status:</label>
-                <select id="attendance-status" name="attendance_status" required>
-                    <option value="present">Present</option>
-                    <option value="absent">Absent</option>
-                    <option value="late">Late</option>
-                </select>
-
-                <button type="submit" class="button">Submit Attendance</button>
-            </form>
+            <h2>Notification Categories</h2>
+            <ul>
+                <li>Academic Notifications</li>
+                <li>Administrative Notifications</li>
+                <li>Library Notifications</li>
+            </ul>
         </div>
 
-        <!-- Attendance History -->
-        <div class="section">
-            <h2>Attendance History</h2>
-            <table>
-                <tr>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Remarks</th>
-                </tr>
-                <tr>
-                    <td>2025-03-30</td>
-                    <td>Present</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>2025-03-29</td>
-                    <td>Absent</td>
-                    <td>Family Emergency</td>
-                </tr>
-            </table>
-        </div>
-
-        <!-- Attendance Reports -->
-        <div class="section">
-            <h2>Attendance Reports</h2>
-            <button class="button">Download PDF</button>
-            <button class="button">Download Excel</button>
-        </div>
-
-        <!-- Notifications -->
-        <div class="section">
-            <h2>Notifications</h2>
-            <p>Alert: Your attendance is below 75% for this month.</p>
-        </div>
-
-        <!-- Attendance Policies -->
-        <div class="section">
-            <h2>Attendance Policies</h2>
-            <p>Students must maintain a minimum of 75% attendance to be eligible for exams.</p>
-        </div>
-
-        <!-- Search and Filter -->
         <div class="section">
             <h2>Search and Filter</h2>
             <form>
-                <div class="input-group">
-                    <label for="search-date">Search by Date:</label>
-                    <input type="date" id="search-date" name="search-date">
-                </div>
-                <div class="input-group">
-                    <label for="filter-status">Filter by Status:</label>
-                    <select id="filter-status" name="filter-status">
-                        <option value="all">All</option>
-                        <option value="present">Present</option>
-                        <option value="absent">Absent</option>
-                        <option value="late">Late</option>
-                    </select>
-                </div>
+                <input type="text" placeholder="Search notifications">
                 <button type="submit" class="button">Search</button>
             </form>
+        </div>
+
+        <div class="section">
+            <h2>Mark as Read/Unread</h2>
+            <button class="button">Mark All as Read</button>
+        </div>
+
+        <div class="section">
+            <h2>Notification Details</h2>
+            <p>Click on a notification to view more details.</p>
+        </div>
+
+        <div class="section notification-settings">
+            <h2>Notification Settings</h2>
+            <p>Customize your notification preferences:</p>
+            <ul>
+                <li><input type="checkbox" checked> Academic Notifications</li>
+                <li><input type="checkbox" checked> Administrative Notifications</li>
+                <li><input type="checkbox" checked> Library Notifications</li>
+            </ul>
         </div>
     </div>
 </body>

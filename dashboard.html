@@ -159,19 +159,18 @@
 
 <body>
     <div class="header">
-        <div>SMART ACCADEMIC ERP DASHBOARD</div>
+        <div>SMART ACADEMIC ERP DASHBOARD</div>
         <div class="logout">
             <button onclick="logout()">LOG OUT</button>
         </div>
     </div>
 
     <div class="sidebar">
-        <div class="profile-photo"></div>
+        <div class="profile-photo">
+            <img src="download.png" alt="Profile Photo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
         <div class="sidebar-section">
             <h3>Profile</h3>
-            <input type="file" id="profile-photo-input" accept="image/*" onchange="previewImage(event)">
-            <label for="profile-photo-input">Change Profile Photo</label>
-            <img id="profile-photo" src="" alt="Profile Photo" style="display: none;">
             <a href="#">View Profile</a>
             <a href="#">Edit Profile</a>
         </div>
@@ -189,10 +188,10 @@
 
     <div class="container">
         <div class="card">
-            <a href="#" onclick="navigateTo('attendance')">Attendance Tracking</a>
+            <a href="#" onclick="navigateTo('attendence')">Attendance Tracking</a>
         </div>
         <div class="card">
-            <a href="#" onclick="navigateTo('grades')">Grade Tracking</a>
+            <a href="#" onclick="navigateTo('grade')">Grade Tracking</a>
         </div>
         <div class="card">
             <a href="#" onclick="navigateTo('exam')">Exam/Admit Card</a>
@@ -207,7 +206,7 @@
             <a href="#" onclick="navigateTo('fees')">Fees/Fine Tracking</a>
         </div>
         <div class="card">
-            <a href="#" onclick="navigateTo('notifications')">Notifications</a>
+            <a href="#" onclick="navigateTo('notification')">Notifications</a>
         </div>
     </div>
 
