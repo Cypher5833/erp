@@ -47,16 +47,6 @@
             text-align: center;
         }
 
-        .chart {
-            width: 15%; /* Further reduced size to make the chart even smaller */
-            height: 50px; /* Adjusted height proportionally */
-            background-color: #ddd;
-            text-align: center;
-            line-height: 50px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
         .button {
             background-color: #4CAF50;
             color: white;
@@ -86,10 +76,6 @@
         <!-- Attendance Overview -->
         <div class="section">
             <h2>Attendance Overview</h2>
-            <div class="chart-container">
-                <!-- Bar Chart -->
-                <canvas id="barChart" class="chart"></canvas>
-            </div>
             <p>Total Days Attended: 120</p>
             <p>Total Days Absent: 10</p>
             <p>Attendance Percentage: 92%</p>
@@ -121,20 +107,18 @@
         <!-- Mark Attendance -->
         <div class="section">
             <h2>Mark Attendance</h2>
-            <form>
-                <div class="input-group">
-                    <label for="student-name">Student Name:</label>
-                    <input type="text" id="student-name" name="student-name">
-                </div>
-                <div class="input-group">
-                    <label for="attendance-status">Status:</label>
-                    <select id="attendance-status" name="attendance-status">
-                        <option value="present">Present</option>
-                        <option value="absent">Absent</option>
-                        <option value="late">Late</option>
-                    </select>
-                </div>
-                <button type="submit" class="button">Mark Attendance</button>
+            <form action="attendance_backend.php" method="POST">
+                <label for="student-name">Student Name:</label>
+                <input type="text" id="student-name" name="student_name" required>
+
+                <label for="attendance-status">Attendance Status:</label>
+                <select id="attendance-status" name="attendance_status" required>
+                    <option value="present">Present</option>
+                    <option value="absent">Absent</option>
+                    <option value="late">Late</option>
+                </select>
+
+                <button type="submit" class="button">Submit Attendance</button>
             </form>
         </div>
 
@@ -200,40 +184,5 @@
             </form>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Data for the charts
-        const attendanceData = {
-            labels: ['Attended', 'Absent'],
-            datasets: [{
-                label: 'Attendance',
-                data: [120, 10], // Example data
-                backgroundColor: ['#4CAF50', '#f44336'], // Colors for the chart
-                borderColor: ['#4CAF50', '#f44336'],
-                borderWidth: 1
-            }]
-        };
-
-        // Bar Chart
-        const barCtx = document.getElementById('barChart').getContext('2d');
-        new Chart(barCtx, {
-            type: 'bar',
-            data: attendanceData,
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>
