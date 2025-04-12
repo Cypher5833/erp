@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission</title>
+    <title>Attendance Tracker</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #f4f4f9;
         }
 
         .header {
@@ -18,202 +17,169 @@
             color: white;
             padding: 20px;
             text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
         }
 
         .content {
             padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .section h2 {
-            font-size: 22px;
             color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 5px;
-            margin-bottom: 15px;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            background-color: #f4f4f4;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        form input[type="text"], form input[type="email"], form input[type="tel"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        form button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        form button:hover {
-            background-color: #45a049;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
         }
 
         th, td {
-            border: 1px solid #ddd;
             padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #4CAF50;
-            color: white;
+            text-align: center;
         }
 
         .button {
             background-color: #4CAF50;
             color: white;
-            border: none;
             padding: 10px 20px;
-            font-size: 16px;
+            border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            margin-right: 10px;
         }
 
         .button:hover {
             background-color: #45a049;
         }
 
-        .search-bar {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
+        .input-group {
+            margin-bottom: 10px;
         }
 
-        .search-bar input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
+        .input-group label {
             margin-right: 10px;
-        }
-
-        .search-bar button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .search-bar button:hover {
-            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="header">Admission</div>
+    <div class="header">Attendance Tracking</div>
     <div class="content">
+        <!-- Attendance Overview -->
         <div class="section">
-            <h2>Admission Overview</h2>
-            <p>Application Deadline: April 30, 2025</p>
-            <p>Interview Dates: May 10-15, 2025</p>
+            <h2>Attendance Overview</h2>
+            <p>Total Days Attended: 120</p>
+            <p>Total Days Absent: 10</p>
+            <p>Attendance Percentage: 92%</p>
         </div>
 
+        <!-- Daily Attendance -->
         <div class="section">
-            <h2>Application Form</h2>
-            <form>
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="qualification">Highest Qualification:</label>
-                <input type="text" id="qualification" name="qualification" required>
-                <label for="contact">Contact Number:</label>
-                <input type="tel" id="contact" name="contact" required>
-                <button type="submit" class="button">Submit Application</button>
-            </form>
-        </div>
-
-        <div class="section">
-            <h2>Admission Status</h2>
+            <h2>Daily Attendance</h2>
+            <p>View your attendance status for each day:</p>
             <table>
                 <tr>
-                    <th>Application ID</th>
+                    <th>Date</th>
                     <th>Status</th>
                     <th>Remarks</th>
                 </tr>
                 <tr>
-                    <td>12345</td>
-                    <td>Under Review</td>
+                    <td>2025-04-01</td>
+                    <td>Present</td>
                     <td>-</td>
+                </tr>
+                <tr>
+                    <td>2025-04-02</td>
+                    <td>Absent</td>
+                    <td>Sick Leave</td>
                 </tr>
             </table>
         </div>
 
+        <!-- Mark Attendance -->
         <div class="section">
-            <h2>Admission Requirements</h2>
-            <ul>
-                <li>Copy of academic transcripts</li>
-                <li>Recommendation letters</li>
-                <li>Proof of identity</li>
-            </ul>
+            <h2>Mark Attendance</h2>
+            <form action="attendance_backend.php" method="POST">
+                <label for="student-name">Student Name:</label>
+                <input type="text" id="student-name" name="student_name" required>
+
+                <label for="attendance-status">Attendance Status:</label>
+                <select id="attendance-status" name="attendance_status" required>
+                    <option value="present">Present</option>
+                    <option value="absent">Absent</option>
+                    <option value="late">Late</option>
+                </select>
+
+                <button type="submit" class="button">Submit Attendance</button>
+            </form>
         </div>
 
+        <!-- Attendance History -->
         <div class="section">
-            <h2>Fee Payment</h2>
-            <button class="button">Pay Admission Fee</button>
+            <h2>Attendance History</h2>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Remarks</th>
+                </tr>
+                <tr>
+                    <td>2025-03-30</td>
+                    <td>Present</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>2025-03-29</td>
+                    <td>Absent</td>
+                    <td>Family Emergency</td>
+                </tr>
+            </table>
         </div>
 
+        <!-- Attendance Reports -->
+        <div class="section">
+            <h2>Attendance Reports</h2>
+            <button class="button">Download PDF</button>
+            <button class="button">Download Excel</button>
+        </div>
+
+        <!-- Notifications -->
         <div class="section">
             <h2>Notifications</h2>
-            <p>Alert: Your application is under review.</p>
-            <p>Notification: Interview scheduled for May 12, 2025.</p>
+            <p>Alert: Your attendance is below 75% for this month.</p>
         </div>
 
+        <!-- Attendance Policies -->
         <div class="section">
-            <h2>Admission Policies</h2>
-            <p>Eligibility: Minimum 60% in the last qualifying exam.</p>
-            <p>Refund Policy: Admission fees are non-refundable.</p>
+            <h2>Attendance Policies</h2>
+            <p>Students must maintain a minimum of 75% attendance to be eligible for exams.</p>
         </div>
 
+        <!-- Search and Filter -->
         <div class="section">
             <h2>Search and Filter</h2>
-            <form class="search-bar">
-                <input type="text" placeholder="Search admission details">
+            <form>
+                <div class="input-group">
+                    <label for="search-date">Search by Date:</label>
+                    <input type="date" id="search-date" name="search-date">
+                </div>
+                <div class="input-group">
+                    <label for="filter-status">Filter by Status:</label>
+                    <select id="filter-status" name="filter-status">
+                        <option value="all">All</option>
+                        <option value="present">Present</option>
+                        <option value="absent">Absent</option>
+                        <option value="late">Late</option>
+                    </select>
+                </div>
                 <button type="submit" class="button">Search</button>
             </form>
         </div>
